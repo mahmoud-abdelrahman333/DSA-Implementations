@@ -13,6 +13,10 @@ public class PhoneList {
 	public PhoneList(){
 		this.first=this.last=null;
 	}
+
+
+
+	// Add Contact
 	public void AddContact(String name,String PhoneNumber){
 		Node NewNode=new Node(name,PhoneNumber);
 		if(first==null){
@@ -24,6 +28,9 @@ public class PhoneList {
 			last.next=null;
 		}
 	}
+
+
+	// Display Phone List
 	public void displayList(){
 		if(first==null){
 			System.out.println("The List is Empty.");
@@ -36,6 +43,8 @@ public class PhoneList {
 		}
 	}
 
+
+	// Search Contact
 	public void searchContact(String name){
 		if(first==null){
 			System.out.println("The List is Empty.");
@@ -53,6 +62,8 @@ public class PhoneList {
 		System.out.println(name+" Contact's Not Found");
 	}
 
+
+	// additional function
 	public boolean ContactExists(String name){
 		Node Curr=first;
 		while(Curr!=null){
@@ -64,6 +75,8 @@ public class PhoneList {
 		return false;
 	}
 
+
+	// Delete Contact
 	public void deleteContact(String name){
 		if(first==null){
 			System.out.println("The List is Empty.");
