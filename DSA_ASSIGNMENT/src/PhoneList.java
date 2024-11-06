@@ -17,7 +17,6 @@ public class PhoneList {
 		Node NewNode=new Node(name,PhoneNumber);
 		if(first==null){
 			first=last=NewNode;
-			first.next=last.next=null;
 		}
 		else {
 			last.next=NewNode;
@@ -44,7 +43,7 @@ public class PhoneList {
 		}
 		Node Curr=first;
 		while(Curr!=null){
-			if(Curr.name==name){
+			if(Curr.name.equals(name)){
 				System.out.println("Contact Found");
 				System.out.println("Name: "+Curr.name+' '+"Phone Number:"+Curr.PhoneNumber);
 			}
@@ -56,7 +55,7 @@ public class PhoneList {
 	public Boolean ContactExists(String name){
 		Node Curr=first;
 		while(Curr!=null){
-			if(Curr.name==name){
+			if(Curr.name.equals(name)){
 				return true;
 			}
 			Curr=Curr.next;
@@ -71,10 +70,10 @@ public class PhoneList {
 		}
 		if(ContactExists(name)){
 			Node Curr = first;
-			if (Curr.name == name) {
+			if (Curr.name.equals(name)) {
 				first=last=null;
 			} else {
-				while (Curr.next.name != name) {
+				while (!Curr.next.name.equals(name)) {
 					Curr = Curr.next;
 				}
 				Curr.next = Curr.next.next;
