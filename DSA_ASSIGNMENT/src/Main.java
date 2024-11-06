@@ -7,6 +7,8 @@ public class Main {
 		PhoneList ph=new PhoneList();
 		ph.AddContact("Alice","123-456-7890");
        ph.displayList();
+	   ph.searchContact("Alice");
+	   ph.searchContact("BOB");
 	   ph.deleteContact("Alice");
        ph.displayList();
 
