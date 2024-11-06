@@ -46,13 +46,14 @@ public class PhoneList {
 			if(Curr.name.equals(name)){
 				System.out.println("Contact Found");
 				System.out.println("Name: "+Curr.name+' '+"Phone Number:"+Curr.PhoneNumber);
+				return;
 			}
 			Curr=Curr.next;
 		}
 		System.out.println(name+" Contact's Not Found");
 	}
 
-	public Boolean ContactExists(String name){
+	public boolean ContactExists(String name){
 		Node Curr=first;
 		while(Curr!=null){
 			if(Curr.name.equals(name)){
@@ -71,18 +72,29 @@ public class PhoneList {
 		if(ContactExists(name)){
 			Node Curr = first;
 			if (Curr.name.equals(name)) {
-				first=last=null;
-			} else {
-				while (!Curr.next.name.equals(name)) {
+				if (Curr == last){
+					first = last = null;
+				} else {
+					first = first.next;
+				}
+			}
+			else {
+				while (Curr.next != null && !Curr.next.name.equals(name)) {
 					Curr = Curr.next;
 				}
-				Curr.next = Curr.next.next;
+
+				if (Curr.next == null) {
+					System.out.println(name + " Contact's not found");
+				} else {
+					if (Curr.next == last) {
+						last = Curr;
+					}
+					Curr.next = Curr.next.next;
+				}
+			}
 			}
 		}
-		else {
-			System.out.println(name+" Contact's not found");
-		}
-	}
+
 
 
 
