@@ -102,7 +102,7 @@ public class PhoneList {
 					if (Curr.next == last) {
 						last = Curr;
 					}
-					Curr.next = Curr.next.next;
+					Curr = Curr.next;
 				}
 			}
 			}
